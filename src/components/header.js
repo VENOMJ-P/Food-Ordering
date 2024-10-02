@@ -5,9 +5,10 @@ const NavigationBar = () => {
     <nav className="navigationBar" key="navigationBar">
       <img className="siteLogo" key="siteLogo" src={logo} alt="Site Logo" />
       <ul className="navigationLinks" key="navigationLinks">
-        <li>Home</li>
-        <li>About</li>
-        <li>Cart</li>
+        <li key="home">Home</li>
+        <li key="about">About</li>
+        <li key="contact">Contact</li>
+        <li key="cart">Cart</li>
       </ul>
     </nav>
   );
