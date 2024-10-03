@@ -1,11 +1,23 @@
 import React from "react";
-import { ShimmerPostList } from "react-shimmer-effects";
-
 const Shimmer = () => {
   return (
-    <div id="shimmer">
-      <ShimmerPostList postStyle="STYLE_THREE" col={4} row={4} gap={30} />;
-    </div>
+    <>
+      <div className="search-food">
+        <input disabled id="search-input" className="loading" />
+        <button id="search-btn" className="loading"></button>
+      </div>
+      <div className="shimmer-container">
+        {Array(8) // Render 8 shimmer skeletons (adjust number based on your design)
+          .fill("")
+          .map((_, index) => (
+            <div key={index} className="shimmer-card">
+              <div className="shimmer-image"></div>
+              <div className="shimmer-title"></div>
+              <div className="shimmer-description"></div>
+            </div>
+          ))}
+      </div>
+    </>
   );
 };
 
