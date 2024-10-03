@@ -155,3 +155,7 @@
   outline: none; /* Remove default button outline */
   box-shadow: 0 0 5px rgba(33, 136, 56, 0.5); /* Consistent focus style */
 }
+
+#shimmer {
+  margin: 15px;
+}
