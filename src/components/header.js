@@ -1,4 +1,5 @@
 import logo from "../../static/image.png";
+import Auth_UI from "./auth_ui";
 
 const NavigationBar = () => {
   return (
@@ -10,6 +11,7 @@ const NavigationBar = () => {
         <li key="contact">Contact</li>
         <li key="cart">Cart</li>
       </ul>
+      <Auth_UI />
     </nav>
   );
 };
