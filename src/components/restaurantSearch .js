@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 import RestaurantCard from "./card.js";
-import { RESTAURANT } from "../config/restaurants.js";
 import Shimmer from "./shimmer.js";
 
 const filterRestaurantsByName = (searchQuery, restaurantList) => {
@@ -18,6 +17,9 @@ const RestaurantSearch = () => {
   const [filteredRestaurants, setFilteredRestaurants] =
     useState(allRestaurants);
 
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const handleSearch = () => {
     const filteredResults = filterRestaurantsByName(
       searchQuery,
@@ -31,19 +33,39 @@ const RestaurantSearch = () => {
   }, []);
 
   async function fetchAllRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.59080&lng=85.13480&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    const restaurants =
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    setAllRestaurants(restaurants);
-    setFilteredRestaurants(restaurants);
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.59080&lng=85.13480&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch restaurants");
+      }
+
+      const json = await response.json();
+      const restaurants =
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants || [];
+      setAllRestaurants(restaurants);
+      setFilteredRestaurants(restaurants);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   }
-  return allRestaurants.length == 0 ? (
-    <Shimmer />
-  ) : (
+
+  if (loading) {
+    return <Shimmer />;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  return (
     <>
       <div className="search-food">
         <input
