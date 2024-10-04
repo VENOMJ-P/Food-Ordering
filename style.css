@@ -326,3 +326,31 @@
     align-items: center;
   }
 }
+
+.authbtn {
+  width: 140px;
+  height: 45px;
+  margin-left: 10px;
+  background-color: #14391c; /* Consistent green theme */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Match input border radius */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.authbtn:hover {
+  background-color: #0c2211; /* Darken button on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.authbtn:active {
+  transform: translateY(0); /* Reset on click */
+}
+
+.authbtn:focus {
+  outline: none; /* Remove default button outline */
+  box-shadow: 0 0 5px rgba(22, 77, 33, 0.5); /* Consistent focus style */
+}
