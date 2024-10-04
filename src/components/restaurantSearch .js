@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import RestaurantCard from "./card.js";
 import Shimmer from "./shimmer.js";
+import { RESTAURANT_URL } from "../config/serverConfig.js";
 
 const filterRestaurantsByName = (searchQuery, restaurantList) => {
   if (!searchQuery) return restaurantList;
@@ -36,9 +37,7 @@ const RestaurantSearch = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.59080&lng=85.13480&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      );
+      const response = await fetch(RESTAURANT_URL);
 
       if (!response.ok) {
         throw new Error("Failed to fetch restaurants");
@@ -85,7 +84,10 @@ const RestaurantSearch = () => {
       <div className="food-card">
         {filteredRestaurants.length > 0 ? (
           filteredRestaurants.map((restaurant) => (
-            <RestaurantCard key={restaurant?.info?.id} {...restaurant?.info} />
+            <RestaurantCard
+              {...restaurant?.info}
+              key={restaurant?.info?.id}
+            ></RestaurantCard>
           ))
         ) : (
           <p>No restaurants found.</p>

@@ -26,6 +26,15 @@
   align-items: center;
 }
 
+.navigationLinks li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navigationLinks li a:hover {
+  text-decoration: underline;
+}
+
 /* Card container */
 .food-card {
   display: flex;
@@ -64,6 +73,11 @@
   object-fit: cover; /* Preserve aspect ratio */
   border-radius: 8px; /* Match the card's border-radius */
   margin-bottom: 10px;
+}
+
+.card a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Text styling for headings and paragraphs */
@@ -156,4 +170,159 @@
   box-shadow: 0 0 5px rgba(33, 136, 56, 0.5); /* Consistent focus style */
 }
 
+/* Syle for About us Section */
 
+#about-us {
+  padding: 40px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+#about-us ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* CSS for restaurant-head */
+.restaurant-head {
+  text-align: center;
+  padding: 30px;
+  background-color: #fafafa;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+}
+
+.restaurant-head h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.restaurant-head h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #34495e;
+}
+
+.restaurant-head h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #7f8c8d;
+}
+
+.restaurant-image {
+  width: 100%;
+  max-width: 650px; /* Slightly larger max width */
+  height: auto;
+  object-fit: cover;
+  margin: 25px 0;
+  border-radius: 20px; /* More rounded corners for a modern look */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.restaurant-image:hover {
+  transform: scale(1.08); /* Increased zoom effect on hover */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Container for the menu section */
+#menus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Title for each menu section */
+#menus h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%;
+  border-bottom: 2px solid #ddd; /* Underline effect */
+  padding-bottom: 10px;
+}
+
+/* Dishes section containing the cards */
+#dishes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between cards */
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+/* Card container */
+.card {
+  flex: 1 1 240px; /* Allow cards to grow while maintaining a minimum width */
+  max-width: 240px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow */
+}
+
+.card > div {
+  margin-bottom: 10px; /* Space between card elements */
+}
+
+/* Image styling */
+.foodimg {
+  width: 100%; /* Responsive image */
+  height: 150px;
+  object-fit: cover; /* Preserve aspect ratio */
+  border-radius: 8px; /* Match the card's border-radius */
+  margin-bottom: 10px;
+}
+
+.card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Text styling for headings and paragraphs */
+.card h3 {
+  font-size: 1.2rem;
+  margin: 0 0 5px;
+  color: #333;
+}
+
+.card h4 {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 8px;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0;
+}
+#menus h2 {
+  font-size: 1.8rem;
+  color: #ff6347; /* Change this to your desired color */
+  margin-bottom: 20px;
+  text-align: center; /* Center align the text */
+  width: 100%;
+  border-bottom: 2px solid #ddd; /* Underline effect */
+  padding-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #dishes {
+    flex-direction: column;
+    align-items: center;
+  }
+}
